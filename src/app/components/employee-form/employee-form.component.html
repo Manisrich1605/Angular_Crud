@@ -1,0 +1,31 @@
+<div class="p-8 mt-4">
+    <div class="shadow p-6">
+        @if(isEdit){
+            <h4>Edit Leavetype</h4>
+        }@else {
+            <h4>Create Leavetype</h4>
+        }
+        <form [formGroup]="employeeForm" (ngSubmit)="save()"><!--bind form-->
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Leavetype</mat-label>
+                    <input type="text" id="leavetype" matInput placeholder="Leavetype" formControlName="name" /><!--bind inputs-->
+                  </mat-form-field>
+            </div>
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>DefaultDays</mat-label>
+                    <input type="number" id="defaultdays" matInput placeholder="DefaultDays" formControlName="defaultDays" />
+                  </mat-form-field>
+            </div>
+            <div class="flex justify-center">
+                @if(isEdit){
+                    <button mat-raised-button color="primary" [disabled]="!employeeForm.valid">Update</button>
+                }@else {
+                    <button mat-raised-button color="primary" [disabled]="!employeeForm.valid">Add</button>
+                }
+                
+            </div>
+        </form>
+    </div>
+</div>
